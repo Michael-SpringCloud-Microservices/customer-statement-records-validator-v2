@@ -1,0 +1,25 @@
+info:
+  description: "Service for Customer Statement Records Validation v2"
+
+spring:
+  application:
+    name: customer-statement-records-validator-v2
+# For large files, we cannot use Spring Boot’s default StandardServletMultipartResolver or CommonsMultipartResolver, 
+# since the server has limited resources (disk space) or memory for buffering. 
+#So we need to disable the default MultipartResolverand define our ownMultipartResolver, which is present in the main application class.
+  servlet:
+    multipart:
+      enabled: false
+      max-file-size: 10MB
+
+security:
+  basic:
+    enabled: false
+
+server:
+  port: 8110
+
+
+#logging:
+  #level:
+    #ROOT: DEBUG
